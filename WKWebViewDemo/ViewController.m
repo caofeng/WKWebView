@@ -50,10 +50,13 @@
     WKWebViewConfiguration: 初始化 webview 的设置。
     WKWindowFeatures: 指定加载新网页时的窗口属性。
     */
+    
+    CGFloat begin_Y = 44+[[UIApplication sharedApplication] statusBarFrame].size.height;
+    
     WKWebViewConfiguration *conf = [[WKWebViewConfiguration alloc]init];
     self.userContentController = [[WKUserContentController alloc]init];
     conf.userContentController = self.userContentController;
-    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) configuration:conf];
+    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, begin_Y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-begin_Y) configuration:conf];
     
     
     
